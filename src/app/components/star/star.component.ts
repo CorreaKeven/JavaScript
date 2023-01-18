@@ -7,7 +7,8 @@ import { Component, Input, OnChanges } from '@angular/core';
 })
 export class StarComponent implements OnChanges {
 
-  @Input() rating: number =0;          //torna a variavel elegivel a receber informação
+  @Input() rating: number = 0;          //torna a variavel elegivel a receber informação
+  
   starWidht!: number;
 
 

@@ -9,5 +9,6 @@ export class Course {
     rating!: number;
     release!: string;
     options!: string;
+    description!: string;
 
 }
