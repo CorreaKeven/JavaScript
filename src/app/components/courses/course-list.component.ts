@@ -18,23 +18,26 @@ export class CourseListComponent {
             {
              id: 1,
              name: 'Angular: Forms',
-             imageUrl: '',
+             imageUrl: 'assets/images/forms.png',
              price: 99.99,
              code: 'XPS-8976',
              duration: 120,
              rating: 5.4 ,
-             release:'January, 2, 2023' 
+             release:'January, 2, 2023',
+             options: ''
             },
 
             {
                 id: 2,
                 name: 'Angular: HTTP',
-                imageUrl: '',
+                imageUrl: 'assets/images/http.png',
                 price: 45.99,
                 code: 'LKS-1096',
                 duration: 80,
                 rating: 4.5 ,
-                release:'December, 10, 2022'
+                release:'December, 10, 2022',
+                options: ''
+
                }
 
         ]

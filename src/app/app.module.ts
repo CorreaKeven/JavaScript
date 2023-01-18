@@ -9,7 +9,8 @@ import { ParentDataComponent } from './components/parent-data/parent-data.compon
 import { DirectivesComponent } from './components/directives/directives.component';
 import { IfRenderComponent } from './components/if-render/if-render.component';
 import { EventosComponent } from './components/eventos/eventos.component';
-import { CourseListComponent } from './courses/course-list.component';
+import { CourseListComponent } from './components/courses/course-list.component';
+import { StarComponent } from './components/star/star.component';
 
 @NgModule({
   declarations: [ // DECLARACAO DE COMPONENTES
@@ -19,7 +20,8 @@ import { CourseListComponent } from './courses/course-list.component';
     DirectivesComponent,
     IfRenderComponent,
     EventosComponent,
-    CourseListComponent
+    CourseListComponent,
+    StarComponent,
   ],
   imports: [ // IMPORTAÇÃO DE MODULO
     BrowserModule,
