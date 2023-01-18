@@ -1,0 +1,25 @@
+@import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
+
+/* * {
+margin: 0;
+padding: center;
+font-family:Helvetica;
+margin-left: 250px;
+} */
+
+body {
+
+    padding-bottom: 500px;
+}
+
+.class{
+
+    border-bottom: 1px solid red;
+    padding: 2em;
+    margin-bottom: 1em;
+}
+
+/* table, th, td {
+    align-items:flex-end;
+    border: 1px solid;
+  } */
