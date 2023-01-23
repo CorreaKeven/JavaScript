@@ -2,6 +2,7 @@ import { Course } from './course';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { CourseInfoComponent } from './course-info.component';
 
 
 @Injectable({
@@ -13,6 +14,19 @@ export class CourseService {
     retrieveAll(): Course[] {
         return COURSES;
     }
+
+    retrieveById(id: number): Course {
+        return COURSES.find((courseIterator: Course)=> courseIterator.id=== id);
+    }
+
+        save(course: Course){
+
+            if(course.id){
+                const index = COURSES.findIndex((CourseIterator : Course) => CourseIterator.id === course.id);
+                COURSES[index]=course;
+            }
+        }
+
 
 }
 

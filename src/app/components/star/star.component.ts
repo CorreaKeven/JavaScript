@@ -9,7 +9,7 @@ export class StarComponent implements OnChanges {
 
   @Input() rating: number = 0;          //torna a variavel elegivel a receber informação
   
-  starWidht!: number;
+  starWidht: number;
 
 
 ngOnChanges(): void {

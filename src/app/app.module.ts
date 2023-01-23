@@ -4,7 +4,6 @@ import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { ActivatedRoute } from '@angular/router';
 
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FirstComponentComponent } from './components/first-component/first-component.component';
@@ -18,6 +17,7 @@ import { ReplacePipe } from './pipe/replace.pipe';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { Error404Component } from './components/error-404/error-404.component';
 import { CourseInfoComponent } from './components/courses/course-info.component';
+import { CommonModule } from '@angular/common';
 
 @NgModule({
   declarations: [ // DECLARACAO DE COMPONENTES
@@ -39,6 +39,7 @@ import { CourseInfoComponent } from './components/courses/course-info.component'
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    CommonModule,
     RouterModule.forRoot([
       {
         path: '', redirectTo: 'courses', pathMatch: 'full'  // no path: ''  -> indica que é na raiz da aplicação ou seja http://localhost:4200/
