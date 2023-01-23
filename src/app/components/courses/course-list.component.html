@@ -1,5 +1,5 @@
 <div class="container">
-    <h1>Course List</h1>
+    <h1 style="margin-top: 50px;">Course List</h1>
 
 <div class="form-group row">
 
@@ -33,12 +33,12 @@
                 </td>
                 <td>{{course.name}}</td>
                 <td>{{course.price}}</td>
-                <td>{{course.code}}</td>
+               <td>{{course.code | lowercase | replace: '-':' ' }}</td>  <!--  | pipe -->
                 <td>{{course.duration}}</td>
                 <td>
                     <app-star [rating]="course.rating"></app-star>
                 </td>
-                <td>{{course.release}}</td>
+                <td>{{course.release | date: 'dd/MM/yyyy' }}</td> <!--  | pipe -->
                 <td>{{course.options}}</td>
     
             </tr>
