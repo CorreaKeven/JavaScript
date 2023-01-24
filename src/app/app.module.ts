@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { ActivatedRoute } from '@angular/router';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -40,6 +41,7 @@ import { CommonModule } from '@angular/common';
     AppRoutingModule,
     FormsModule,
     CommonModule,
+    HttpClientModule,
     RouterModule.forRoot([
       {
         path: '', redirectTo: 'courses', pathMatch: 'full'  // no path: ''  -> indica que é na raiz da aplicação ou seja http://localhost:4200/

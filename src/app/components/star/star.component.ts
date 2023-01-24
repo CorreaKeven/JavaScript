@@ -7,15 +7,18 @@ import { Component, Input, OnChanges } from '@angular/core';
 })
 export class StarComponent implements OnChanges {
 
-  @Input() rating: number = 0;          //torna a variavel elegivel a receber informação
-  
-  starWidht: number;
-
+  @Input() 
+  rating: number = 0;          //torna a variavel elegivel a receber informação
+  starWidth: number;
+  starValid: boolean;
 
 ngOnChanges(): void {
 
-this.starWidht= this.rating * 74 / 5;
-    
+this.starWidth= this.rating * 74 / 5;
+
+     if(this.starWidth == 0){
+      this.starValid= false;
+     }else this.starValid=true;
 }
 
 }

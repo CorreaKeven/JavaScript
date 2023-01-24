@@ -1,4 +1,5 @@
-<div class="crop" [style.widht.px]="starWidht" [title]="rating">
+<div *ngIf="starValid;" class="crop" [style.width.px]="starWidth" [title]="rating">
+
     <div style="width:80px;">
         <span class="fa fa-star"></span>
         <span class="fa fa-star"></span>
@@ -6,4 +7,9 @@
         <span class="fa fa-star"></span>
         <span class="fa fa-star"></span>
     </div>
+
+</div>
+
+<div *ngIf="starValid===false;">
+    <span style="color: red;">No evaluation</span>
 </div>
