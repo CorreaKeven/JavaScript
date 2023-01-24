@@ -31,6 +31,15 @@ export class CourseListComponent {
             error: err => console.log('Error', err)
         });
     }
+    deletebyId(courseId: number): void {
+        this.courseService.deletebyId(courseId).subscribe({
+            next: () => {
+                console.log('Deleted with Sucess');
+                this.retrieveAll();
+            },
+            error: err => console.log('Erro', err)
+        })
+    }
 
     set filter(value: string) {
         this._filterBy = value;
