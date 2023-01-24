@@ -1,41 +1,61 @@
-import { Course } from './course';
-import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
-import { CourseInfoComponent } from './course-info.component';
+const express = require('express');
+const bodyParser = require('body-parser');
+const cors = require('cors');
+const app = express();
 
+var currentUser;
 
-@Injectable({
-    providedIn: 'root'
-})
+var corsOptions = {
+  orgim: '/',
+  optionsSuccessStatus: 200
+}
 
-export class CourseService {
+app.use(cors(corsOptions));
+app.use(bodyParser.json());
 
-    private coursesUrl: string = 'http://localhost:3100/api/courses';
+app.listen(3100, () => {
+  console.log('Server Started!');
+});
 
-    constructor(private httpClient: HttpClient) { }
+app.route('/api/courses').get((request, response) => {
+  response.send(COURSES);
+});
 
-    retrieveAll(): Observable<Course[]> {
-        return this.httpClient.get<Course[]>(this.coursesUrl);
-    }
+app.route('/api/courses').post((request, response) => {
+  let course = request.body;
 
-    retrieveById(id: number): Observable<Course> {
-        return this.httpClient.get<Course>(`${this.coursesUrl}/${id}`);
-    }
+  const firstId = COURSES ? Math.max.apply(null, COURSES.map(courseIterator => courseIterator.id)) + 1 : 1;
+  course.id = firstId;
+  COURSES.push(course);
+  
 
-    save(course: Course): Observable<Course> {
+  response.status(201).send(course);
+});
 
-        if (course.id) {
-                return this.httpClient.put<Course>(`${this.coursesUrl}/${course.id}`, course);
-            } else {
-                return this.httpClient.post<Course>(`${this.coursesUrl}`, course);
-            }
-            // const index = COURSES.findIndex((CourseIterator: Course) => CourseIterator.id === course.id);
-            // COURSES[index] = course;
-        }
-    }
+app.route('/api/courses/:id').put((request, response) => {
+  const courseId = +request.params['id'];
+  const course = request.body;
 
-var COURSES: Course[] = [
+  const index = COURSES.findIndex(courseIterator => courseIterator.id === courseId);
+  COURSES[index] = course;
+
+  response.status(200).send(course);
+});
+
+app.route('/api/courses/:id').get((request, response) => {
+  const courseId = +request.params['id'];
+
+  response.status(200).send(COURSES.find(courseIterator => courseIterator.id === courseId));
+});
+
+app.route('/api/courses/:id').delete((request, response)=> {
+  const courseId = +request.params['id'];
+  COURSES = COURSES.filter(courseIterator => courseIterator.id !== courseId);
+  
+  response.status(204).send({});
+});
+
+var COURSES = [
     {
         id: 1,
         name: 'Angular: CLI',
@@ -46,7 +66,6 @@ var COURSES: Course[] = [
         rating: 3,
         price: 12.99,
         imageUrl: '/assets/images/cli.png',
-        options: ''
     },
     {
         id: 2,
@@ -58,7 +77,6 @@ var COURSES: Course[] = [
         rating: 3.5,
         price: 24.99,
         imageUrl: '/assets/images/forms.png',
-        options: ''
     },
     {
         id: 3,
@@ -70,7 +88,6 @@ var COURSES: Course[] = [
         rating: 4.0,
         price: 36.99,
         imageUrl: '/assets/images/http.png',
-        options: ''
     },
     {
         id: 4,
@@ -82,7 +99,6 @@ var COURSES: Course[] = [
         rating: 4.5,
         price: 46.99,
         imageUrl: '/assets/images/router.png',
-        options: ''
     },
     {
         id: 5,
@@ -94,6 +110,5 @@ var COURSES: Course[] = [
         rating: 5,
         price: 56.99,
         imageUrl: '/assets/images/animations.png',
-        options: ''
     }
 ];
