@@ -33,6 +33,10 @@ export class CourseService {
             // const index = COURSES.findIndex((CourseIterator: Course) => CourseIterator.id === course.id);
             // COURSES[index] = course;
         }
+
+        deletebyId(id: number): Observable<any> {
+            return this.httpClient.delete<any>(`${this.coursesUrl}/${id}`);
+        }
     }
 
 var COURSES: Course[] = [

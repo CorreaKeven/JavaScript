@@ -42,6 +42,7 @@
                 <!-- <td>{{course.options}}</td> -->
                 <td>
                     <a [routerLink]="['/courses/info', course.id]" class="btn btn-primary">Edit</a>
+                    <button (click)="deletebyId(course.id)" class="btn btn-danger mr-2" style="margin-left: 10px;">Delete</button>
                 </td>
             </tr>
         </tbody>
